@@ -28,6 +28,7 @@ class PrinterClass {
         isHelloPrinted = true;
         System.out.print("Hello ");
         notify();
+        
     }
 }
 
