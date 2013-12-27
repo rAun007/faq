@@ -1,9 +1,10 @@
 package com.raunak.sort;
+
 public class HeapSort {
 
     public static void main(String[] args) {
 
-        Integer[] input = { 1, 2, 3, 4 };
+        Integer[] input = { 4,1,3,2,16,9,10,14,8,7 };
 
         Integer[] x = heapSort(input);
 
@@ -38,7 +39,7 @@ public class HeapSort {
 
     private static Integer[] buildMaxHeap(Integer[] input) {
 
-        for (int i = input.length / 2; i >= 0 ; i--) {
+        for (int i = input.length / 2; i >= 0; i--) {
             input = heapify(input, i, input.length);
         }
 
@@ -46,19 +47,20 @@ public class HeapSort {
     }
 
     private static Integer[] heapSort(Integer[] input) {
-        
+
         input = buildMaxHeap(input);
-        
-        for(int j = input.length - 1; j >= 1; j--){
-            
-            int count = input.length -100;
+
+        int count = input.length - 1;
+
+        for (int j = input.length - 1; j >= 1; j--) {
+
             int maxValue = input[0];
             input[0] = input[j];
             input[j] = maxValue;
-            
+
             input = heapify(input, 0, count--);
         }
-        
+
         return input;
     }
 }
