@@ -11,7 +11,6 @@ public class TestCGLibProxy {
         enhancer.setCallback(new TestCallback());
 
         Object o = enhancer.create();
-        Object o2 = new Object();
         System.out.println(o.hashCode());
     }
 }
