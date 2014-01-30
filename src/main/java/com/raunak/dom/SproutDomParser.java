@@ -61,7 +61,13 @@ public class SproutDomParser {
         }
         
         NodeList lockNodeList = getNodeList(document, "/Application/orientation");
-        lock = lockNodeList.getLength() > 0;
+        
+        for(int i = 0; i < lockNodeList.getLength(); i++){
+            String lockValue = lockNodeList.item(i).getTextContent();
+            if("portrait".equalsIgnoreCase(lockValue) || "landscape".equalsIgnoreCase(lockValue)){
+                lock = true;
+            }
+        }
 
         System.out.println("video::" + video + ", audion::" + audio + ", autoplay::" + autoPlay + ", lock::" + lock);
     }
@@ -69,7 +75,7 @@ public class SproutDomParser {
     private static Document getDocument() {
 
         try {
-            return DocumentBuilderFactory.newInstance().newDocumentBuilder().parse("/home/raunak/Desktop/Sprout.xml");
+            return DocumentBuilderFactory.newInstance().newDocumentBuilder().parse("/home/raunak/Desktop/Sprout1.xml");
         } catch (SAXException | IOException | ParserConfigurationException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
