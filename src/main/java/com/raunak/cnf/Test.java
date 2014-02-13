@@ -42,11 +42,11 @@ public class Test {
         // System.out.println(print(cnfFormula));
 
         List<List<Integer>> dnf = new ArrayList<>();
-        dnf.add(Arrays.asList(1, 2));
-        dnf.add(Arrays.asList(3, 4));
-        dnf.add(Arrays.asList(5, 6));
-        // dnf.add(Arrays.asList(7, 8));
-        // dnf.add(Arrays.asList(9, 10));
+        dnf.add(Arrays.asList(1));
+        dnf.add(Arrays.asList(3));
+        dnf.add(Arrays.asList(5));
+        dnf.add(Arrays.asList(7));
+        dnf.add(Arrays.asList(9));
 
         Formula dnfFormula = convertDNFToFormula(dnf);
 

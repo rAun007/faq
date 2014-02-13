@@ -34,8 +34,9 @@ public class SproutDomParser {
 
         boolean video = false;
         boolean audio = false;
-        boolean autoPlay = false;
+        boolean videoAutoPlay = false;
         boolean lock = false;
+        boolean audioAutoPlay = false;
 
         Document document = getDocument();
 
@@ -45,31 +46,49 @@ public class SproutDomParser {
             String sourceRef = sourceNodes.item(i).getTextContent();
             if ("com.sproutbuilder.components.video.VideoComponent".equals(sourceRef)) {
                 video = true;
-                if (!autoPlay) {
+                if (!videoAutoPlay) {
                     NodeList autoPlayNodeList = getNodeList(sourceNodes.item(i), "../componentProperties/property[@name='autoplay']");
                     for (int j = 0; j < autoPlayNodeList.getLength(); j++) {
                         String value = autoPlayNodeList.item(j).getAttributes().getNamedItem("value").getTextContent();
                         if ("always".equals(value)) {
-                            autoPlay = true;
+                            videoAutoPlay = true;
                             break;
                         }
                     }
                 }
             } else if ("com.sproutbuilder.components.audio.AudioComponent".equals(sourceRef)) {
                 audio = true;
-            }
-        }
-        
-        NodeList lockNodeList = getNodeList(document, "/Application/orientation");
-        
-        for(int i = 0; i < lockNodeList.getLength(); i++){
-            String lockValue = lockNodeList.item(i).getTextContent();
-            if("portrait".equalsIgnoreCase(lockValue) || "landscape".equalsIgnoreCase(lockValue)){
-                lock = true;
+                if (!audioAutoPlay) {
+                    NodeList autoPlayNodeList = getNodeList(sourceNodes.item(i), "../componentProperties/property[@name='autoplay']");
+                    for (int j = 0; j < autoPlayNodeList.getLength(); j++) {
+                        String value = autoPlayNodeList.item(j).getAttributes().getNamedItem("value").getTextContent();
+                        if ("always".equals(value)) {
+                            audioAutoPlay = true;
+                            break;
+                        }
+                    }
+                }
             }
         }
 
-        System.out.println("video::" + video + ", audion::" + audio + ", autoplay::" + autoPlay + ", lock::" + lock);
+        NodeList lockNodeList = getNodeList(document, "/Application/orientation");
+
+        for (int i = 0; i < lockNodeList.getLength(); i++) {
+            String lockValue = lockNodeList.item(i).getTextContent();
+            if ("portrait".equalsIgnoreCase(lockValue) || "landscape".equalsIgnoreCase(lockValue)) {
+                lock = true;
+            }
+        }
+        
+        NodeList format = getNodeList(document, "/Application/applicationWidth");
+        
+        for (int i = 0; i < format.getLength(); i++) {
+            
+            System.out.println(format.item(i).getTextContent());
+        }
+
+        System.out.println("video::" + video + ", audio::" + audio + ", videoAutoPlay::" + videoAutoPlay + ", audioAutoPlay::"
+                + audioAutoPlay + ", lock::" + lock);
     }
 
     private static Document getDocument() {
