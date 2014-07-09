@@ -1,44 +1,52 @@
 package com.raunak.threading;
 
+import java.util.LinkedList;
+import java.util.List;
+
 public class BlockingQueue<T> {
 
-    private T[] arrayElements;
+    private List<T> queue = new LinkedList<T>();
 
     private int limit = 100;
 
-    private int currentSize = -1;
-
-    @SuppressWarnings("unchecked")
     public BlockingQueue(int limit) {
 
         this.limit = limit;
-        arrayElements = (T[]) new Object[limit];
     }
 
     public synchronized void enqueue(T element) throws InterruptedException {
 
-        while (arrayElements.length == this.limit) {
+        if (queue.size() == limit) {
             wait();
         }
 
-        if (arrayElements.length == 0) {
+        if (queue.size() == 0) {
             notifyAll();
         }
 
-        arrayElements[++currentSize] = element;
+        queue.add(element);
     }
 
     public synchronized T dequeue() throws InterruptedException {
 
-        while (arrayElements.length == 0) {
+        if (queue.size() == 0) {
             wait();
         }
 
-        if (arrayElements.length == limit) {
+        if (queue.size() == limit) {
             notifyAll();
         }
 
-        T element = arrayElements[currentSize--];
+        T element = queue.remove(0);
         return element;
+    }
+
+    public static void main(String[] args) throws InterruptedException {
+
+        BlockingQueue<String> x = new BlockingQueue<String>(2);
+        x.enqueue("1");
+        x.enqueue("2");
+        x.enqueue("3");
+        System.out.println(x.queue);
     }
 }
