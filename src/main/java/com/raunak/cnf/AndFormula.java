@@ -1,7 +1,5 @@
 package com.raunak.cnf;
 
-import java.util.ArrayList;
-import java.util.List;
 
 public class AndFormula extends Formula {
 
