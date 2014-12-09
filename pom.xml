@@ -57,7 +57,12 @@
             <artifactId>JavaEWAH</artifactId>
             <version>0.9.0</version>
         </dependency>
-	</dependencies>
+        <dependency>
+            <groupId>org.apache.directory.api</groupId>
+            <artifactId>api-all</artifactId>
+            <version>1.0.0-M26</version>
+        </dependency>
+    </dependencies>
 	<build>
 		<plugins>
 			<plugin>
