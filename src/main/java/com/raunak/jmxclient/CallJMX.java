@@ -10,8 +10,6 @@ import javax.management.remote.JMXConnector;
 import javax.management.remote.JMXConnectorFactory;
 import javax.management.remote.JMXServiceURL;
 
-import com.inmobi.platform.rbac.AuthManagementMBean;
-
 /**
  * Created by raunak.agrawal on 4/23/15.
  */

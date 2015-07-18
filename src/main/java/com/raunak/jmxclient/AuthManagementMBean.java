@@ -1,4 +1,4 @@
-package com.inmobi.platform.rbac;
+package com.raunak.jmxclient;
 
 /**
  * Created by raunak.agrawal on 4/23/15.
