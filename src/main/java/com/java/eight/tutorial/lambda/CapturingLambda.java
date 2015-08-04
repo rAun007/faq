@@ -14,7 +14,9 @@ public class CapturingLambda {
          * (Note: capturing an instance variable can be seen as capturing the final local variable this.)
          */
         int pNo = 8080; // The
-        Runnable r = () -> System.out.println(pNo);
+        Runnable r = () -> System.out.println(pNo );
+        Thread t = new Thread(r);
+        t.start();
         //pNo = 6; //Compilation error
         System.out.println("Done");
     }
