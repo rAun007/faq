@@ -62,6 +62,11 @@
             <artifactId>api-all</artifactId>
             <version>1.0.0-M26</version>
         </dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.14.8</version>
+		</dependency>
     </dependencies>
 	<build>
 		<plugins>
