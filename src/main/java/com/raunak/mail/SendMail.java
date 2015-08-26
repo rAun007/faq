@@ -2,33 +2,53 @@ package com.raunak.mail;
 
 import java.util.Properties;
 
+import javax.mail.Authenticator;
 import javax.mail.Message;
 import javax.mail.MessagingException;
+import javax.mail.PasswordAuthentication;
 import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
 public class SendMail {
-    public static void main(String[] args) {
+    public void sendMail(String content) {
 
         // Recipient's email ID needs to be mentioned.
-        String to = "agrawal.raunak@gmail.com";
+        String to = "raunak.ratan@gmail.com";
 
         // Sender's email ID needs to be mentioned
-        String from = "raunak.ratan@gmail.com";
+        String from = "no-reply@mkhoj.com";
 
         // Assuming you are sending email from localhost
-        String host = "localhost";
+        String host = "smtp.gmail.com";
 
         // Get system properties
         Properties properties = System.getProperties();
 
         // Setup mail server
         properties.setProperty("mail.smtp.host", host);
+        properties.setProperty("mail.smtp.auth", "true");
+        properties.setProperty("mail.smtp.starttls.enable", "true");
 
         // Get the default Session object.
-        Session session = Session.getDefaultInstance(properties);
+        Session session = Session.getDefaultInstance(properties, new Authenticator() {
+            /**
+             * Called when password authentication is needed.  Subclasses should
+             * override the default implementation, which returns null. <p>
+             * <p/>
+             * Note that if this method uses a dialog to prompt the user for this
+             * information, the dialog needs to block until the user supplies the
+             * information.  This method can not simply return after showing the
+             * dialog.
+             *
+             * @return The PasswordAuthentication collected from the
+             * user, or null if none is provided.
+             */
+            @Override protected PasswordAuthentication getPasswordAuthentication() {
+                return new PasswordAuthentication("no-reply@mkhoj.com", "mkhojasdf");
+            }
+        });
 
         try {
             // Create a default MimeMessage object.
@@ -39,12 +59,14 @@ public class SendMail {
 
             // Set To: header field of the header.
             message.addRecipients(Message.RecipientType.TO, InternetAddress.parse(to));
-            //message.addRecipients(Message.RecipientType.TO, to);
+            // message.addRecipients(Message.RecipientType.TO, to);
             // Set Subject: header field
             message.setSubject("This is the Subject Line!");
 
-            // Send the actual HTML message, as big as you like
-            message.setContent("<h1>This is actual message</h1>", "text/html");
+            if (content.startsWith("<!DOCTYPE html"))
+                message.setContent(content, "text/html");
+            else
+                message.setText(content);
 
             // Send message
             Transport.send(message);

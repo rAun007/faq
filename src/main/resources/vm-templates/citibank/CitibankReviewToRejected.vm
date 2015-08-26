@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>InMobi</title>
+</head>
+
+<body style="font-family:Arial, Helvetica, sans-serif; font-size:13px">
+<table cellpadding="0" cellspacing="0" width="600px" style="background:white; color:black; margin:5px; border:1px solid #d5d5c0; padding:20px">
+
+    <tr>
+        <td colspan="2" style="text-align:left; padding:10px ; font-size:12px;font-weight:normal">
+            Hi,<br /><br/>
+
+            Your transaction has been declined.
+            <br/>
+            <p></p>
+            Refund will be initiated and you will receive the same in your account within 7 working days.
+            </br/>
+            <p></p>
+            If you have further questions, you can reach out to our support team here : </br>
+            https://www.inmobi.com/support/<br/><br/>
+
+            Warm Regards,<br/>
+            The InMobi Team
+
+        </td>
+
+    </tr>
+
+    <tr>
+        <td colspan="2" style="font-size:11px; font-weight:normal; text-align:center;padding:30px 10px">
+            <a href="http://www.inmobi.com/terms/privacy-policy/" style="color:#666666">Privacy Policy</a> |
+            <a href="http://www.inmobi.com/terms/" style="color:#666666">Terms of Services</a> |
+            <span style="color:#666666"> &copy; 2015 InMobi</span>
+        </td>
+
+    </tr>
+</table>
+<br/>
+<table cellpadding="0" cellspacing="0" width="600">
+    <tr>
+        <td text-align:justify "color:#666666" font-weight:normal style="font-size:9px">
+        The information contained in this communication is intended solely for the use of the individual or entity to whom it is addressed and others authorized to receive it. It may contain confidential or legally privileged information. If you are not the intended recipient you are hereby notified that any disclosure, copying, distribution or taking any action in reliance on the contents of this information is strictly prohibited and may be unlawful. If you have received this communication in error, please notify us immediately by responding to this email and then delete it from your system. InMobi is neither liable for the proper and complete transmission of the information contained in this communication nor for any delay in its receipt.
+        </td>
+    </tr>
+</table>
+</body>
+</html>
