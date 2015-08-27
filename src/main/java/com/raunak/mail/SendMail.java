@@ -15,10 +15,10 @@ public class SendMail {
     public void sendMail(String content) {
 
         // Recipient's email ID needs to be mentioned.
-        String to = "raunak.ratan@gmail.com";
+        String to = "myemail@gmail.com";
 
         // Sender's email ID needs to be mentioned
-        String from = "no-reply@mkhoj.com";
+        String from = "x@sfkjk.com";
 
         // Assuming you are sending email from localhost
         String host = "smtp.gmail.com";
@@ -46,7 +46,7 @@ public class SendMail {
              * user, or null if none is provided.
              */
             @Override protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication("no-reply@mkhoj.com", "mkhojasdf");
+                return new PasswordAuthentication("x@rgk.com", "defew");
             }
         });
 
