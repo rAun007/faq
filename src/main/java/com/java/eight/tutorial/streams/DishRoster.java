@@ -37,7 +37,5 @@ public class DishRoster {
         System.out.println(number1.stream().flatMap(x -> number2.stream().map(j -> new int[]{x, j}))
                 .collect(Collectors.toList()));
 
-        System.out.println(5 % 1 );
-
     }
 }
