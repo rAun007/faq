@@ -77,6 +77,11 @@
 			<artifactId>zookeeper</artifactId>
 			<version>3.4.6</version>
 		</dependency>
+		<dependency>
+			<groupId>io.netty</groupId>
+			<artifactId>netty-transport</artifactId>
+			<version>4.0.33.Final</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<plugins>
