@@ -82,6 +82,11 @@
 			<artifactId>netty-transport</artifactId>
 			<version>4.0.33.Final</version>
 		</dependency>
+		<dependency>
+			<groupId>org.apache.storm</groupId>
+			<artifactId>storm-core</artifactId>
+			<version>1.0.3</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<plugins>
